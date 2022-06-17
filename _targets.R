@@ -186,39 +186,39 @@ list(
       draws,
       omicron = TRUE,
       omicron_infection_multiplier = 14.4, # increase in newts against Omi if infected by Omi
-      neut_immune_escape = 1/5
+      neut_immune_escape = 0.325
     )
   ),
 
   tar_target(
     save_ve_predictions_omicron,
     write_csv(
-      ve_predictions_omicron,
-      "outputs/ve_waning_predictions_omicron.csv"
+      ve_predictions_omicron_super_escape,
+      "outputs/ve_waning_predictions_omicron_BA4.csv"
     )
   ),
 
   tar_target(
     waning_plot_omicron,
     plot_waning(
-      ve_predictions_omicron,
+      ve_predictions_omicron_super_escape,
       immunity_levels = c(
-        "Omicron Infection",
-        "Pfizer vaccine dose 2 + Omicron infection",
-        "mRNA booster + Omicron infection",
+        "Omicron BA1/2 Infection",
+        "Pfizer vaccine dose 2 + Omicron BA1/2 infection",
+        "mRNA booster + Omicron BA1/2 infection",
         "mRNA booster",
         "Pfizer vaccine dose 2",
         "AZ vaccine dose 2",
         "mRNA dose 4",
-        "mRNA dose 4 + Omicron infection")
+        "mRNA dose 4 + Omicron BA1/2 infection")
       ) +
       ggtitle("Predicted waning in vaccine efficacy",
-              "against the Omicron variant")
+              "against the Omicron BA4/5 subvariant")
   ),
 
   tar_target(
     save_waning_plot_omicron,
-    ggsave("figures/ve_waning_omicron.png",
+    ggsave("figures/ve_waning_omicron_BA4.png",
        plot = waning_plot_omicron,
        width = 9,
        height = 6,
@@ -237,12 +237,12 @@ list(
   tar_target(
     waning_plot_omicron_data,
     plot_waning(
-      ve_predictions_omicron,
+      ve_predictions_omicron_super_escape,
       omicron_ve_data,
       immunity_levels = c(
-        "Omicron Infection",
-        "Pfizer vaccine dose 2 + Omicron infection",
-        "mRNA booster + Omicron infection",
+        "Omicron BA1/2 Infection",
+        "Pfizer vaccine dose 2 + Omicron BA1/2 infection",
+        "mRNA booster + Omicron BA1/2 infection",
         "mRNA booster",
         "Pfizer vaccine dose 2",
         "AZ vaccine dose 2")
@@ -253,7 +253,7 @@ list(
 
   tar_target(
     save_waning_plot_omicron_data,
-    ggsave("figures/ve_waning_omicron_with_data.png",
+    ggsave("figures/ve_waning_omicron_with_data_BA4.png",
        plot = waning_plot_omicron_data,
        width = 9,
        height = 6,

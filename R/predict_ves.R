@@ -78,7 +78,7 @@ predict_ves <- function(
     )
 
     # add omicron infection protection against omicron (same as WT infection against WT)
-    log10_neuts_list$omicron_infection <- log10_neuts_list$Pfizer_dose_2 * 0
+    log10_neuts_list$omicron_infection <- log10_neuts_list$Pfizer_dose_2 * 0 + log10(neut_immune_escape)
 
   }
 
@@ -140,15 +140,15 @@ predict_ves <- function(
         immunity == "Pfizer_dose_1" ~ "Pfizer vaccine dose 1",
         immunity == "mRNA_booster" ~ "mRNA booster",
         immunity == "wt_infection" ~ "WT Infection",
-        immunity == "omicron_infection" ~ "Omicron Infection",
-        immunity == "wt_infection_plus_omicron_infection" ~ "WT Infection + Omicron infection",
-        immunity == "AZ_dose_2_plus_omicron_infection" ~ "AZ vaccine dose 2 + Omicron infection",
-        immunity == "AZ_dose_1_plus_omicron_infection" ~ "AZ vaccine dose 1 + Omicron_infection",
-        immunity == "Pfizer_dose_2_plus_omicron_infection" ~ "Pfizer vaccine dose 2 + Omicron infection",
-        immunity == "Pfizer_dose_1_plus_omicron_infection" ~ "Pfizer vaccine dose 1 + Omicron infection",
-        immunity == "mRNA_booster_plus_omicron_infection" ~ "mRNA booster + Omicron infection",
+        immunity == "omicron_infection" ~ "Omicron BA1/2 Infection",
+        immunity == "wt_infection_plus_omicron_infection" ~ "WT Infection + Omicron BA1/2 infection",
+        immunity == "AZ_dose_2_plus_omicron_infection" ~ "AZ vaccine dose 2 + Omicron BA1/2 infection",
+        immunity == "AZ_dose_1_plus_omicron_infection" ~ "AZ vaccine dose 1 + Omicron BA1/2 infection",
+        immunity == "Pfizer_dose_2_plus_omicron_infection" ~ "Pfizer vaccine dose 2 + Omicron BA1/2 infection",
+        immunity == "Pfizer_dose_1_plus_omicron_infection" ~ "Pfizer vaccine dose 1 + Omicron BA1/2 infection",
+        immunity == "mRNA_booster_plus_omicron_infection" ~ "mRNA booster + Omicron BA1/2 infection",
         immunity == "mRNA_dose_4" ~ "mRNA dose 4",
-        immunity == "mRNA_dose_4_plus_omicron_infection" ~ "mRNA dose 4 + Omicron infection"
+        immunity == "mRNA_dose_4_plus_omicron_infection" ~ "mRNA dose 4 + Omicron BA1/2 infection"
       )
     )
 

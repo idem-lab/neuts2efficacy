@@ -25,14 +25,14 @@ plot_waning <- function(
     "mRNA booster" = lighten("darkorchid4", 0.1),
     "Pfizer vaccine dose 2" = lighten("darkorchid1", 0.1),
     "WT Infection" = grey(0.9),
-    "Omicron Infection" = grey(0.85),
-    "Pfizer vaccine dose 2 + Omicron infection" = "darkorchid1",
-    "mRNA booster + Omicron infection" = "darkorchid4",
+    "Omicron BA1/2 Infection" = grey(0.85),
+    "Pfizer vaccine dose 2 + Omicron BA1/2 infection" = "darkorchid1",
+    "mRNA booster + Omicron BA1/2 infection" = "darkorchid4",
     "AZ vaccine dose 2" = lighten("firebrick1", 0.1),
     "Pfizer vaccine dose 1" = lighten("darkorchid1", 0.8),
     "AZ vaccine dose 1" = lighten("firebrick1", 0.8),
     "mRNA dose 4" = lighten("#2512ce", 0.1),
-    "mRNA dose 4 + Omicron infection" = "#2512ce"
+    "mRNA dose 4 + Omicron BA1/2 infection" = "#2512ce"
   )
 
   immunity_colours <- immunity_colours[immunity_levels]
