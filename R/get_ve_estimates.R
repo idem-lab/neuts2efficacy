@@ -44,7 +44,7 @@ get_ve_estimates <- function() {
       # make all ves positive at lowest reported resolution
       across(
         starts_with("ve"),
-       ~pmax(.x, 0.001),
+       ~pmax(.x, 0.001)
       ),
       # recode boosters as the same product (assume same VEs)
       product = case_when(
