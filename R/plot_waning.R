@@ -93,7 +93,7 @@ plot_waning <- function(
     coord_cartesian(
       xlim = c(0, 200)
     ) +
-    ylab("Efficacy") +
+    ylab("Effectiveness") +
     xlab("Days since peak immunity") +
     theme_minimal()
 

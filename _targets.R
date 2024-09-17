@@ -136,7 +136,7 @@ list(
     plot_waning(
       ve_predictions_delta
     ) +
-    ggtitle("Predicted waning in vaccine efficacy",
+    ggtitle("Predicted waning in vaccine effectiveness",
           "against the Delta variant")
   ),
   tar_target(
@@ -155,7 +155,7 @@ list(
       neut_model$ve_data_modelling %>%
         filter(variant == "delta")
     ) +
-    ggtitle("Predicted waning in vaccine efficacy",
+    ggtitle("Predicted waning in vaccine effectiveness",
           "against the Delta variant")
   ),
 
@@ -201,7 +201,7 @@ list(
   tar_target(
     waning_plot_omicron,
     plot_waning(
-      ve_predictions_omicron_super_escape,
+      ve_predictions_omicron,
       immunity_levels = c(
         "Omicron BA1/2 Infection",
         "Pfizer vaccine dose 2 + Omicron BA1/2 infection",
@@ -212,13 +212,13 @@ list(
         "mRNA dose 4",
         "mRNA dose 4 + Omicron BA1/2 infection")
       ) +
-      ggtitle("Predicted waning in vaccine efficacy",
-              "against the Omicron BA4/5 subvariant")
+      ggtitle("Predicted waning in vaccine effectiveness",
+              "against the Omicron BA1/2 subvariant")
   ),
 
   tar_target(
     save_waning_plot_omicron,
-    ggsave("figures/ve_waning_omicron_BA4.png",
+    ggsave("figures/ve_waning_omicron_BA12.png",
        plot = waning_plot_omicron,
        width = 9,
        height = 6,
@@ -237,7 +237,7 @@ list(
   tar_target(
     waning_plot_omicron_data,
     plot_waning(
-      ve_predictions_omicron_super_escape,
+      ve_predictions_omicron,
       omicron_ve_data,
       immunity_levels = c(
         "Omicron BA1/2 Infection",
@@ -247,13 +247,13 @@ list(
         "Pfizer vaccine dose 2",
         "AZ vaccine dose 2")
     ) +
-      ggtitle("Predicted waning in vaccine efficacy",
+      ggtitle("Predicted waning in vaccine effectiveness",
               "against the Omicron variant")
   ),
 
   tar_target(
     save_waning_plot_omicron_data,
-    ggsave("figures/ve_waning_omicron_with_data_BA4.png",
+    ggsave("figures/ve_waning_omicron_with_data_BA12.png",
        plot = waning_plot_omicron_data,
        width = 9,
        height = 6,
