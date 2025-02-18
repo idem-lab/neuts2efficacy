@@ -27,7 +27,7 @@ plot_waning <- function(
     "WT Infection" = grey(0.9),
     "Omicron BA1/2 Infection" = grey(0.85),
     "Pfizer vaccine dose 2 + Omicron BA1/2 infection" = "darkorchid1",
-    "mRNA booster + Omicron BA1/2 infection" = "darkorchid4",
+    "mRNA booster + Omicron BA1/2 infection" = darken("darkorchid4",0.9),
     "AZ vaccine dose 2" = lighten("firebrick1", 0.1),
     "Pfizer vaccine dose 1" = lighten("darkorchid1", 0.8),
     "AZ vaccine dose 1" = lighten("firebrick1", 0.8),

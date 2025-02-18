@@ -241,7 +241,7 @@ list(
       omicron_ve_data,
       immunity_levels = c(
         "Omicron BA1/2 Infection",
-        "Pfizer vaccine dose 2 + Omicron BA1/2 infection",
+        #"Pfizer vaccine dose 2 + Omicron BA1/2 infection",
         "mRNA booster + Omicron BA1/2 infection",
         "mRNA booster",
         "Pfizer vaccine dose 2",
