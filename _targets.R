@@ -114,6 +114,92 @@ list(
        bg = "white")
   ),
 
+  # plot posteriors for sigmoid funs
+  tar_target(
+    sigmoid_plots,
+    posterior_area_plots(draws =draws,
+                         select_pars = c("log_k",
+                                         "c50s[1,1]",
+                                         "c50s[2,1]",
+                                         "c50s[3,1]",
+                                         "c50s[4,1]",
+                                         "c50s[5,1]"),
+                         label = c("log k",
+                                   "T_hospitalisation",
+                                   "T_death",
+                                   "T_acquisition",
+                                   "T_transmission",
+                                   "T_symptoms"))
+  ),
+
+  tar_target(
+    save_sigmoid_plots,
+    ggsave("figures/sigmoid_plots.png",
+           plot = sigmoid_plots,
+           width = 6,
+           height = 5,
+           bg = "white")
+  ),
+
+  tar_target(
+    peak_neut_plots,
+    posterior_area_plots(draws =draws,
+                         select_pars = c("dose_1_mean_log10_neuts[1,1]",
+                                         "dose_1_mean_log10_neuts[2,1]",
+                                         "dose_2_mean_log10_neuts[1,1]",
+                                         "dose_2_mean_log10_neuts[2,1]",
+                                         "booster_multiplier",
+                                         "omicron_log10_neut_fold"),
+                         label = c("AZ dose 1",
+                                   "Pfizer dose 1",
+                                   "AZ dose 2",
+                                   "Pfizer dose 2",
+                                   "booster multiplier",
+                                   "Omicron immune evasion"))
+  ),
+
+  tar_target(
+    save_peak_neut_plots,
+    ggsave("figures/peak_neut_plots.png",
+           plot = peak_neut_plots,
+           width = 6,
+           height = 5,
+           bg = "white")
+  ),
+
+  tar_target(
+    decay_plots,
+    posterior_area_plots(draws = draws,
+                         select_pars = "neut_halflife",
+                         label = c("immunity level halflife H"))
+  ),
+
+  tar_target(
+    save_decay_plots,
+    ggsave("figures/decay_plots.png",
+           plot = decay_plots,
+           width = 6,
+           height = 5,
+           bg = "white")
+  ),
+
+  tar_target(
+    obs_ve_plots,
+    posterior_area_plots(draws = calculate(neut_model$model_objects$ve_logit_obs_sd_shared,
+                                           values = draws),
+                         select_pars = character(),
+                         label = c("effectiveness variance"))
+  ),
+
+  tar_target(
+    save_obs_ve_plots,
+    ggsave("figures/obs_ve_plots.png",
+           plot = obs_ve_plots,
+           width = 6,
+           height = 5,
+           bg = "white")
+  ),
+
   # VEs against Delta over time
   tar_target(
     ve_predictions_delta,
